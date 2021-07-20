@@ -1,4 +1,4 @@
-module.exports.checkAuthenticated = (req, res, next) => {
+module.exports.isNotLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next()
     }
@@ -6,9 +6,9 @@ module.exports.checkAuthenticated = (req, res, next) => {
 }
 
 
-module.exports.checkNotAuthenticated = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        res.redirect('/')
+module.exports.isLoggedIn = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        return next()
     }
-    next()
+    res.redirect('/')
 }

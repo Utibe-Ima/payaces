@@ -1,18 +1,13 @@
-require('dotenv')
-
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 
-mongoose.connect(process.env.DATABASE_URL)
-
-const db = mongoose.connection
-
-db.on('error', (error) => {
-    console.error(error)
+mongoose.connect("mongodb://localhost/dues_payment", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 
-db.once('open', () => {
-    console.log('Database is running')
-})
+const db = mongoose.connection;
+
 
 module.exports = db;

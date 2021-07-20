@@ -4,19 +4,25 @@ const registrationForm = require('../controllers/registration').registrationForm
 const registration = require('../controllers/registration.js').registration
 const loginForm = require('../controllers/login.js').loginForm
 const login = require('../controllers/login.js').login
-const checkAuth = require('../middlewares/auth.js').checkAuthenticated
-const checkNotAuth = require('../middlewares/auth.js').checkNotAuthenticated
+const logout = require('../controllers/login.js').logout
+const indexPage = require('../controllers/home.js').homepage
+const isLoggedIn = require('../middlewares/auth.js').isLoggedIn
+const isNotLoggedIn = require('../middlewares/auth.js').isNotLoggedIn
 
 
 // Registration Form
-router.get('/registration', checkNotAuth, registrationForm)
+router.get('/registration', isLoggedIn, registrationForm)
 // registration Process
-router.post('/registration', checkNotAuth, registration)
+router.post('/registration', registration)
 
 // Login Form
-router.get('/login', checkNotAuth, loginForm)
-//Login Procress
-router.post('/login', checkAuth, checkNotAuth, login)
+router.get('/login', isLoggedIn, loginForm)
+//Login Process
+router.post('/login', login)
+// Logout Process
+router.get('/logout', logout)
 
+// Home page
+router.get('/', isNotLoggedIn, indexPage)
 
 module.exports = router

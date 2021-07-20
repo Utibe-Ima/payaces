@@ -5,32 +5,26 @@ const bcrypt = require('bcrypt')
 
 
 
-module.exports = function (passport){
-    passport.serializeUser(function (user, done) {
-        done(null, user.id);
+
+
+passport.use(new LocalStrategy(function (username, password, done) {
+    User.findOne({ username: username }, async function (err, user) {
+        if (err) { return done(err) }
+        if (!user) { return done(null, false, { message: "Incorrect Username" }) }
+        if (!(await user.verifyPassword(password))) return done(null, false, { message: "Incorrect Password" })
+        return done(null, user)
     })
+}))
 
-    passport.deserializeUser(function(id, done){
-        User.findById(id, function(err, user){
-            done(err, user)
-        })
-    })
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+})
 
-    passport.use(new LocalStrategy(function(username, password, done){
-        User.findOne({username: username}, function(err, user){
-            if(err) return done(err)
-            if (!user) return done(null, false, {message: 'Incorrect Password'})
+passport.deserializeUser( async function (id, done) {
+    const user = await User.findById(id);
+    if (!user) return done(err, null)
+    done(null, user)
+})
 
-            try {
-                bcrypt.compare(password, user.password, function(err, response){
-                    if (err) return done(err);
-                    if (response === false) return done(null, false, {message: 'Incorrect Password'})
-                        
-                    return done(null, user)
-                })
-            } catch (error) {
-                return done(error)
-            }
-        })
-    }))
-}
+
+module.exports = passport
