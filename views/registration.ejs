@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/registration.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration</title>
 </head>
+
 <body>
-    <form action="/registration" method="post">
-        <div>
-            <input type="text" name="username" id="" placeholder="Registration Number" required>
+  <section class="container overall-section">
+    <div class="row form">
+      <form action="/registration" method="POST">
+        <legend class="text-center">Registration</legend>
+        <div class="mb-3">
+          <input type="name" name="username" class="form-control" placeholder="Registration Number" required />
         </div>
-        <div>
-            <input type="email" name="email" id="" placeholder="Email"
+        <div class="mb-3">
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required />
         </div>
-        <div>
-            <input type="text" name="name" id="" placeholder="Full Name (First Name and Surname only)">
+        <div class="mb-3">
+          <input type="name" name="name" class="form-control" placeholder="Full Name" required />
         </div>
-        <div>
-            <input type="password" name="password" id="" placeholder="Passcode" required>
+        <div class="mb-3">
+          <input type="tel" name="phone_number" class="form-control" placeholder="Phone Number" required />
         </div>
-        <div>
-            <input type="submit" value="Register">
+        <div class="mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Pass Code" required />
         </div>
-    </form>
-    <a href="/login">Login</a>
+        <button type="submit" id="signup-btn" class="btn btn-primary">SignUp</button>
+        <p class="pt-3">
+          Already a User? <a id="login-link" href="/login">Click Here</a> to Sign In
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

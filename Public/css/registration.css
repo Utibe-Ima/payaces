@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 400px;
+}
+
+#signup-btn {
+    background-color: rgb(33,37,41);
+    border-radius: 0;
+    border: none;
+}
+
+#signup-btn:hover{
+    background-color: brown;
+}
+
+#login-link {
+    text-decoration: none;
+    color: brown;
+}
+
+
+#login-link:hover {
+    color: rgb(202, 93, 93);
+}

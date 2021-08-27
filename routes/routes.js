@@ -8,6 +8,7 @@ const logout = require('../controllers/login.js').logout
 const indexPage = require('../controllers/home.js').homepage
 const isLoggedIn = require('../middlewares/auth.js').isLoggedIn
 const isNotLoggedIn = require('../middlewares/auth.js').isNotLoggedIn
+const success = require('../controllers/success').success
 
 
 // Registration Form
@@ -24,5 +25,8 @@ router.get('/logout', logout)
 
 // Home page
 router.get('/', isNotLoggedIn, indexPage)
+
+router.get('/success', isNotLoggedIn,success)
+
 
 module.exports = router

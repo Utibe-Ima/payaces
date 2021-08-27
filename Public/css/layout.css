@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 20px;
+  color: white !important;
+}
+
+
+.navbar {
+  height: 80px;
+}
+
+.navbar-nav a{
+  color: white !important;
+}
+
+.navbar-nav a:hover{
+  color: rgb(240, 190, 128) !important;
+}

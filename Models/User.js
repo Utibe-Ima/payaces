@@ -13,13 +13,18 @@ const UserSchema = new mongoose.Schema({
     name: {
         type: String
     },
+    phone_number: {
+        type: String,
+        required: true
+    },
     password: {
-        type: String
+        type: String,
+        required: true
     }
 })
 
 UserSchema.pre('save', async function (next) {
-    this.username = await this.username.toLowerCase()
+    this.username = await this.username.toUpperCase()
     const salt = await bcrypt.genSalt()
     this.password = await bcrypt.hash(this.password, salt);
     next()
@@ -29,7 +34,7 @@ const model = mongoose.model('User', UserSchema)
 
 model.prototype.verifyPassword = async function (password) {
     // runs the check to verify password
-    let match = await !!bcrypt.compare(password, this.password)
+    let match = await bcrypt.compare(password, this.password)
     return match
 }
 

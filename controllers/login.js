@@ -8,12 +8,14 @@ const app = express()
 
 
 module.exports.loginForm = (req, res) => {
-    res.render('login')
+    res.render('login', 
+        { layout: 'layouts/auth' })
 }
 
 module.exports.login = passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
+    failureFlash: true
 })
 
 module.exports.logout = (req, res) => {

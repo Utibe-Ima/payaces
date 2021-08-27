@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(158, 218, 158);
+    height: 300px;
+    width: 400px;
+}
+
+.wrapper-contents{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: rgb(33,37,41);
+    border-radius: 0;
+    border: none;
+}
+
+.btn:hover{
+    background-color: brown;
+}
+
+span {
+    font-weight: 500;
+}
+
+.tick {
+    background-color: rgb(89, 184, 89);
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+}
+
+.far {
+    color: rgb(17, 80, 17);
+    font-size: 75px;
+    margin-bottom: 15px;
+    text-align: center;
+}

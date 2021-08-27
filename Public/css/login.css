@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+
+
+.form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input:focus{
+    outline: none !important;
+}
+
+i {
+    font-size: 12px;
+    color: rgb(73, 69, 69);
+}
+
+#login-btn {
+    background-color: rgb(33,37,41);
+    border-radius: 0;
+    border: none;
+}
+
+
+#login-btn:hover{
+    background-color: brown;
+}
+
+legend {
+    font-weight: bold;
+}
+
+#reg-link {
+    text-decoration: none;
+    color: brown;
+}
+
+#reg-link:hover {
+    color: rgb(202, 93, 93);
+}

@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.nav-link,
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: rgb(240, 190, 128) !important;
+}
+
+nav {
+    height: 80px;
+}
